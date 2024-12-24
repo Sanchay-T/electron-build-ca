@@ -8,16 +8,16 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width:1800,
     height: 1000,
-    // webPreferences: {
-    //   preload: path.join(__dirname, 'preload.js'), // Optional: Include if you have a preload.js file
-    //   nodeIntegration: false,
-    //   contextIsolation: true,
-    // },
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true
+    },
   });
 
   const startUrl = url.format({
     //in build mode uncomment below line and comment the next line
-    pathname: path.join(__dirname, './myapp/build/index.html'), 
+    pathname: path.join(__dirname, 'myapp/build/index.html'),
     protocol: 'file:',
   });
   mainWindow.loadURL(startUrl);
