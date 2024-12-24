@@ -6,7 +6,7 @@ let mainWindow;
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width:1800,
+    width: 1800,
     height: 1000,
     webPreferences: {
       nodeIntegration: true,
@@ -16,15 +16,11 @@ const createWindow = () => {
   });
 
   const startUrl = url.format({
-    //in build mode uncomment below line and comment the next line
-    pathname: path.join(__dirname, 'myapp/build/index.html'),
+    pathname: path.join(__dirname, './myapp/build/index.html'),
     protocol: 'file:',
+    slashes: true
   });
   mainWindow.loadURL(startUrl);
-
-
-  //in development mode use this line and comment the above line
-  // mainWindow.loadURL('http://localhost:3000/');
 
   // Open the DevTools
   // mainWindow.webContents.openDevTools();
